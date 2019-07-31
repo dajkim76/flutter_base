@@ -38,6 +38,7 @@ dependencies:
 
   # notification
   flutter_local_notifications:
+  fluttertoast:
 
 dev_dependencies:
   flutter_test:

@@ -4,14 +4,14 @@ class NotiManager {
   FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin;
 
   NotiManager._privateConstructor() {
-    init();
+    _init();
   }
 
-  void init() {
+  void _init() {
     // initialise the plugin. app_icon needs to be a added as a drawable resource to the Android head project
     // If you have skipped STEP 3 then change app_icon to @mipmap/ic_launcher
     var initializationSettingsAndroid =
-        new AndroidInitializationSettings('app_icon');
+    new AndroidInitializationSettings('app_icon');
     var initializationSettingsIOS = new IOSInitializationSettings();
     var initializationSettings = new InitializationSettings(
         initializationSettingsAndroid, initializationSettingsIOS);
@@ -22,20 +22,23 @@ class NotiManager {
 
   static final NotiManager instance = NotiManager._privateConstructor();
 
-  void showAlert(String message) async {
+  void showAlert(String title, String message, String payload) async {
     var androidPlatformChannelSpecifics = new AndroidNotificationDetails(
         'CHANNEL_FOR_DEBUG', 'Debug', 'Notification for debug',
-        playSound: false, importance: Importance.Max, priority: Priority.High);
+        playSound: false,
+        importance: Importance.Default,
+        priority: Priority.Default,
+        autoCancel: false);
     var iOSPlatformChannelSpecifics =
-        new IOSNotificationDetails(presentSound: false);
+    new IOSNotificationDetails(presentSound: false);
     var platformChannelSpecifics = new NotificationDetails(
         androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
     await _flutterLocalNotificationsPlugin.show(
       message.hashCode,
-      'Debug!!',
+      title,
       message,
       platformChannelSpecifics,
-      payload: message,
+      payload: payload,
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'main.dart';
 import 'generated/i18n.dart';
+import 'main.dart';
 
 void main() => runApp(MyApp());
 
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: S.delegate.supportedLocales,
       localeResolutionCallback:
-          S.delegate.resolution(fallback: new Locale("en", ""), withCountry: false),
+          S.delegate.resolution(fallback: Locale("en", ""), withCountry: false),
     );
   }
 }

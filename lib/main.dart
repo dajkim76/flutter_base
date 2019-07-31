@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'base/debug_utils.dart';
 import 'generated/i18n.dart';
 import 'settings.dart';
 
@@ -36,6 +37,9 @@ class _MyHomePageState extends State<MyHomePage> {
     if (_counter == null) {
       return;
     }
+
+    Log.d("main", "floating button pressed: counter = $_counter");
+
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below

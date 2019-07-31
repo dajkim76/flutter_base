@@ -36,6 +36,9 @@ dependencies:
   # logging
   fimber:
 
+  # notification
+  flutter_local_notifications:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'base/debug_utils.dart';
+import 'base/noti_manager.dart';
 import 'generated/i18n.dart';
 import 'settings.dart';
 
@@ -39,6 +40,9 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     Log.d("main", "floating button pressed: counter = $_counter");
+
+    NotiManager.instance
+        .showAlert("floating button pressed: counter = $_counter");
 
     setState(() {
       // This call to setState tells the Flutter framework that something has

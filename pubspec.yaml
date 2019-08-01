@@ -40,6 +40,9 @@ dependencies:
   flutter_local_notifications:
   fluttertoast:
 
+  # settings
+  preferences: ^4.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

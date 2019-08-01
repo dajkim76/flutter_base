@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:preferences/preferences.dart';
 
 import 'base/debug_utils.dart';
 import 'generated/i18n.dart';
 import 'test_page.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  await PrefService.init(prefix: "settings_");
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

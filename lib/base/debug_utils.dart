@@ -11,7 +11,7 @@ class DebugUtils {
       // TODO send to firebase
     } else {
       Log.e(tag, message, ex: ex);
-      NotiManager.instance.showAlert(tag, message, ex.toString());
+      NotiManager.instance.createDebugNoti(tag, message, ex.toString());
       toast(tag, "$message\n${ex.toString()}");
     }
   }
@@ -21,7 +21,7 @@ class DebugUtils {
       // TODO send to firebase
     } else {
       Log.e(tag, message);
-      NotiManager.instance.showAlert(tag, message, currentStackTrace());
+      NotiManager.instance.createDebugNoti(tag, message, currentStackTrace());
       toast(tag, message);
     }
   }
@@ -44,34 +44,28 @@ class DebugUtils {
           return AlertDialog(
             title: Text(tag),
             content: Text(message + "\n\n" + currentStackTrace()),
-            actions: <Widget>[
-              FlatButton(
-                  child: Text("CANCEL"),
-                  onPressed: () => Navigator.pop(context))
-            ],
+            actions: <Widget>[FlatButton(child: Text("CANCEL"), onPressed: () => Navigator.pop(context))],
           );
         });
   }
 
   static void checkNotNull(Object o, {String message}) {
     if (!kReleaseMode && o == null) {
-      NotiManager.instance
-          .showAlert("checkNotNull!!", message, currentStackTrace());
+      NotiManager.instance.createDebugNoti("checkNotNull!!", message, currentStackTrace());
       toast("checkNotNull!!", "$message\n\n${currentStackTrace()}");
     }
   }
 
   static void checkState(bool state, {String message}) {
     if (!kReleaseMode && state == false) {
-      NotiManager.instance
-          .showAlert("checkState!!", message, currentStackTrace());
+      NotiManager.instance.createDebugNoti("checkState!!", message, currentStackTrace());
       toast("checkState!!", "$message\n\n${currentStackTrace()}");
     }
   }
 
   static void notify(String tag, String message) {
     if (!kReleaseMode) {
-      NotiManager.instance.showAlert(tag, message, currentStackTrace());
+      NotiManager.instance.createDebugNoti(tag, message, currentStackTrace());
     }
   }
 

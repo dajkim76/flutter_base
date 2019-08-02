@@ -2,4 +2,13 @@
   "appName": "Flutter base library test",
   "youPushedThisManyTimes": "You have pushed the button this many times:",
   "increment": "Increment",
+  "loginPageTitle": "Login",
+  "email": "Email",
+  "password": "Password",
+  "confirmPassword": "Confirm password",
+  "login": "Login",
+  "join": "Join",
+  "resetPassword": "Reset password",
+  "ok": "OK",
+  "cancel": "Cancel"
 }

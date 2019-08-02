@@ -4,7 +4,7 @@ import 'package:preferences/preferences.dart';
 
 import 'base/debug_utils.dart';
 import 'generated/i18n.dart';
-import 'test_page.dart';
+import 'login_page.dart';
 
 void main() async {
   await PrefService.init(prefix: "settings_");
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: TestPage(),
+      home: LoginPage(),
       localizationsDelegates: [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
